@@ -8,10 +8,13 @@ const myPromise = new Promise((resolve, reject) => {
   }
 });
 
-myPromise
-  .then((result) => {
-    console.log(result); // Runs if resolved
-  })
-  .catch((error) => {
-    console.log(error); // Runs if rejected
-  });
+async function myFunction() {
+  try {
+    const result = await myPromise; // Wait for the promise to resolve
+    console.log(result);
+  } catch (error) {
+    console.log(error); // Catch if promise rejects
+  }
+}
+
+myFunction();
